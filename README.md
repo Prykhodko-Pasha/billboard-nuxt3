@@ -40,3 +40,13 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Update of Prisma schema
+
+Whenever you make changes to your Prisma schema in the future, you manually need to invoke
+
+```bash
+prisma generate
+```
+
+in order to accommodate the changes in your Prisma Client API.
