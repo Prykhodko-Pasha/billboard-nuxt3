@@ -171,3 +171,33 @@ export const findUser = async (email) => {
   });
   return user;
 };
+
+// UPDATE
+export const updateUser = async (id, updateData) => {
+  const user = await prisma.user.update({
+    where: {
+      id,
+    },
+    data: {
+      ...updateData,
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      role: true,
+      token: true,
+    },
+  });
+  return user;
+};
+
+// DELETE
+export const deleteUser = async (id) => {
+  const user = await prisma.user.delete({
+    where: {
+      id,
+    },
+  });
+  return user;
+};

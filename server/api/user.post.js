@@ -22,5 +22,5 @@ export default defineEventHandler(async (event) => {
 
   const newUser = await createUser(body);
 
-  return { body: newUser };
+  return newUser;
 });
