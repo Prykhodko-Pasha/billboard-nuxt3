@@ -186,7 +186,7 @@ export const updateUser = async (id, updateData) => {
       name: true,
       email: true,
       role: true,
-      token: true,
+      //   token: true,
     },
   });
   return user;
