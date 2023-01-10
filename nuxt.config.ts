@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: "Billboard",
       bodyAttrs: { class: "h-full" },
       htmlAttrs: { class: "h-full" },
     },

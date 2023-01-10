@@ -54,26 +54,20 @@
 </template>
 
 <script setup>
-// import { ref } from "@vue/reactivity";
+import { loginUserAPI } from "~~/services/users-api";
+
 const email = ref("");
 const password = ref("");
 
 const handleLogin = async () => {
   try {
     const credentials = { email: email.value, password: password.value };
-    // console.log("credentials :>> ", credentials);
-    const user = await $fetch("/api/auth", {
-      method: "PUT",
-      body: credentials,
-    });
+    const user = await loginUserAPI(credentials);
     console.log("user :>> ", user);
     if (user) {
       // await setUser(user);
       useState("user").value = user;
 
-      //   setCookies(user.token);
-
-      // Router.push("/profile");
       useRouter().push("/profile");
     }
   } catch (error) {

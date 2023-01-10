@@ -162,6 +162,7 @@ export const getUser = async (param) => {
       role: true,
     },
   });
+  console.log("getUser user :>> ", user);
   return user;
 };
 
