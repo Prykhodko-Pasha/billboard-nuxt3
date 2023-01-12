@@ -2,7 +2,7 @@ import isAuthenticated from "../helpers/isAuthenticated";
 
 export default defineNuxtRouteMiddleware((to) => {
   const isAuth = isAuthenticated();
-  console.log("Middleware isAuth :>> ", isAuth);
+  // console.log("Middleware isAuth :>> ", isAuth);
 
   switch (to.path) {
     case "/profile":
