@@ -162,6 +162,7 @@ export const getUser = async (param) => {
       role: true,
     },
   });
+  console.log("getUser user :>> ", user);
   return user;
 };
 
@@ -186,7 +187,7 @@ export const updateUser = async (id, updateData) => {
       name: true,
       email: true,
       role: true,
-      token: true,
+      //   token: true,
     },
   });
   return user;

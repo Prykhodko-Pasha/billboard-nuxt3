@@ -2,6 +2,15 @@
 export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
   runtimeConfig: {
-    jwtSecret: process.env.SECRET_KEY,
+    jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,
+    jwtRefreshSecret: process.env.JWT_REFRESH_TOKEN_SECRET,
+  },
+  app: {
+    head: {
+      title: "Billboard",
+      bodyAttrs: { class: "h-full" },
+      htmlAttrs: { class: "h-full" },
+    },
+    rootTag: "body",
   },
 });

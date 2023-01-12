@@ -1,6 +1,6 @@
 import { sendError } from "h3";
 import isPasswordMatching from "~~/helpers/isPasswordMatching";
-import { createToken } from "~~/helpers/tokenOperations";
+import { sendRefreshToken, generateTokens } from "~~/helpers/tokenOperations";
 import { findUser, updateUser } from "../db/users";
 
 export default defineEventHandler(async (event) => {
@@ -35,13 +35,18 @@ export default defineEventHandler(async (event) => {
     );
   }
 
-  // Create a token
+  // Generate tokens
   const { id, ...userData } = user;
-  const updateData = { ...userData, token: createToken(id) };
+  // const updateData = { ...userData, token: createToken(id) };
+  // const loginedUser = await updateUser(id, updateData);
+  const { accessToken, refreshToken } = generateTokens(id);
+
+  // Save refresh token to DB
+  const updateData = { ...userData, token: refreshToken };
   const loginedUser = await updateUser(id, updateData);
 
-  //   // Add http only cookie
-  //   sendToken(event, token);
+  // Add http only cookie
+  sendRefreshToken(event, refreshToken);
 
-  return loginedUser;
+  return { ...loginedUser, accessToken };
 });
