@@ -1,7 +1,4 @@
-export const getUserAPI = async () =>
-  await $fetch("/api/auth", {
-    headers: useRequestHeaders(["cookie"]),
-  });
+export const getUserAPI = async () => await $fetch("/api/auth");
 
 export const getAllUsersAPI = async (params) =>
   await $fetch("/api/user", {

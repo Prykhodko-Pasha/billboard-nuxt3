@@ -1,7 +1,7 @@
-import { setCookie } from "h3";
+import { deleteCookie } from "h3";
 
 export default defineEventHandler(async (event) => {
   console.log("logout :>> ");
-  setCookie(event, "token", null);
+  deleteCookie(event, "token");
   return null;
 });
