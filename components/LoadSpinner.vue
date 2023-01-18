@@ -2,7 +2,7 @@
   <div
     class="bg-gray-200 opacity-90 fixed z-50 w-full min-h-screen flex justify-center items-center"
   >
-    <svg class="w-24 h-24 animate-pulse" fill="none" viewBox="0 0 24 24">
+    <svg class="w-24 h-24 animate-ping" fill="none" viewBox="0 0 24 24">
       <path
         stroke="currentColor"
         stroke-linecap="round"

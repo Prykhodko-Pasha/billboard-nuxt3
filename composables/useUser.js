@@ -51,5 +51,12 @@ export default function useUser() {
     }
   };
 
+  //   const refreshAccessToken = () => {
+  //     const { user } = useUser();
+  //     const accessToken = user.value.accessToken;
+
+  //     if (!accessToken) return;
+  //   };
+
   return { user, setUser, authUser };
 }
